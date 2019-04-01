@@ -11,7 +11,7 @@ int main(){
   VideoCapture camera_r(0);
   if (!camera_l.isOpened()) { cout << "No left camera!" << endl; return -1; }
   if (!camera_r.isOpened()) { cout << "No right camera!" << endl; return -1; }
-  camera_l.set(CAP_PROP_FRAME_WIDTH, 320);
+  camera_l.set(CAP_PROP_FRAME_WIDTH, 320);  
   camera_l.set(CAP_PROP_FRAME_HEIGHT, 240);
   camera_r.set(CAP_PROP_FRAME_WIDTH, 320);
   camera_r.set(CAP_PROP_FRAME_HEIGHT, 240);
