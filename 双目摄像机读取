@@ -27,3 +27,8 @@ int main(){
   }
   return 0;
 }
+
+
+//摄像机有时候读取的有问题，无法完成初始化，如果确定两个摄像头分辨读取没有问题，只是无法一起读取，有如下解决方案。
+//while (!camera_l.isOpened()) { camera_l.open(1); };
+//while (!camera_r.isOpened()) { camera_r.open(0); };
