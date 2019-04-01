@@ -1,0 +1,29 @@
+//双目摄像机读取
+#include "opencv2/opencv.hpp"
+#include "opencv2/opencv.hpp"
+#include "opencv2/highgui.hpp"
+ 
+using namespace std;
+using namespace cv;
+ 
+int main(){
+  VideoCapture camera_l(1);
+  VideoCapture camera_r(0);
+  if (!camera_l.isOpened()) { cout << "No left camera!" << endl; return -1; }
+  if (!camera_r.isOpened()) { cout << "No right camera!" << endl; return -1; }
+  camera_l.set(CAP_PROP_FRAME_WIDTH, 320);
+  camera_l.set(CAP_PROP_FRAME_HEIGHT, 240);
+  camera_r.set(CAP_PROP_FRAME_WIDTH, 320);
+  camera_r.set(CAP_PROP_FRAME_HEIGHT, 240);
+  cv::Mat frame_l, frame_r;
+  while (1) {
+    camera_l >> frame_l;
+    camera_r >> frame_r;
+    imshow("Left Camera", frame_l);
+    imshow("Right Camera", frame_r);
+    char key = waitKey(1);
+    if (key == 27 || key == 'q' || key == 'Q') //Allow ESC to quit
+      break;
+  }
+  return 0;
+}
